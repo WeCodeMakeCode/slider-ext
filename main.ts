@@ -140,13 +140,11 @@ class Slider {
     }
 
 
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="color"-
+    //% group="Properties" blockSetVariable="color"
     //% color.shadow="colorNumberPicker"
     //% weight=8
     public track_color: number;
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb_color"
+    //% group="Properties" blockSetVariable="track_color"
     //% thumb_color.shadow="colorNumberPicker"
     //% weight=8
     public thumb_color: number;
