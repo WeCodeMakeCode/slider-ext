@@ -171,6 +171,7 @@ class Slider {
         this.track = sprites.create(this.track_img);
         this.thumb_img = image.create(3, this._height);
         this.thumb = sprites.create(this.thumb_img);
+        this.make_slider();
     }
     
     private make_slider() {
