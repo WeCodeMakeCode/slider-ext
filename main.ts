@@ -146,7 +146,6 @@ class Slider {
     }
 
 
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="track color"-
     //% weight=8
@@ -157,16 +156,15 @@ class Slider {
     public thumb_color: number;
 
     constructor(value: number, min: number, max: number) {
+        this._value = value;
         this._min = min;
         this._max = max;
-        this._value = value;
         this._width = 100;
         this._height = 8;
         this._left = 30;
         this._top = 112;
         this.track_color = 5;
         this.thumb_color = 2;
-        this.make_slider();
         this.track_img = image.create(this._width, this._height);
         this.track = sprites.create(this.track_img);
         this.thumb_img = image.create(3, this._height);
