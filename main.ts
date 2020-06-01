@@ -4,31 +4,23 @@
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
-    /**
-     * Creates a new dart from an image and kind
-     * @param img the image for the sprite
-     * @param kind the kind to make the dart
-     * @param x optional initial x position, eg: 10
-     * @param y optional initial y position, eg: 110
-     */
-    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum"
+    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height"
     //% value.defl=50
     //% min.defl=0
     //% max.defl=100
+    //% width.min=30 width.max = 160 width.defl=100
+    //% height.min=2 height.max = 10 height.defl=6
     //% expandableArgumentMode=toggle
     //% inlineInputMode=inline
     //% blockSetVariable=mySlider
     //% weight=100
     //% group="Create"
     export function create(value: number = 50,
-        min: number = 0, max: number = 100): Slider {
-        return new Slider(value, min, max);
+        min: number = 0, max: number = 100, width:number = 160, height:number = 10): Slider {
+        return new Slider(value, min, max, width, height);
     }
 }
 
-/**
- * A slider
- **/
 //% blockNamespace=slider color="#008080" blockGap=8
 class Slider {
     private track: Sprite;
@@ -147,12 +139,12 @@ class Slider {
     //% color.shadow="colorNumberPicker"
     public thumb_color: number;
 
-    constructor(value: number, min: number, max: number) {
+    constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
         this._min = min;
         this._max = max;
-        this._width = 100;
-        this._height = 8;
+        this._width = width;
+        this._height = height;
         this._left = 30;
         this._top = 112;
         this.track_color = 5;
