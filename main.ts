@@ -140,11 +140,13 @@ class Slider {
         this._height = height;
         this._left = 30;
         this._top = 112;
-        this.track_color = 5;
-        this.thumb_color = 2;
+        this._track_color = 5;
+        this._thumb_color = 2;
         this.track_img = image.create(this._width, this._height);
+        this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
         this.thumb_img = image.create(3, this._height);
+        this.thumb_img.fill(this._thumb_color);
         this.thumb = sprites.create(this.thumb_img);
         this.update_slider();
     }
@@ -153,7 +155,7 @@ class Slider {
         this.track_img.fill(this.track_color);
         this.track.top = this._top;
         this.track.left = this._left;
-        this.thumb_img.fill(this.thumb_color);
+        this.thumb_img.fill(this._thumb_color);
         this.thumb.top = this.track.top;
         this.calc_value();
     }   
