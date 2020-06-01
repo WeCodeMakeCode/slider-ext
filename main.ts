@@ -1,5 +1,7 @@
 /**
 * A slider with track and thumb
+    //% width.min=30 width.max = 160
+    //% height.min=2 height.max = 10
 */
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
@@ -10,8 +12,6 @@ namespace slider {
     //% max.defl=100
     //% width.defl=100
     //% height.defl=6
-    //% width.min=30 width.max = 160 
-    //% height.min=2 height.max = 10 
     //% expandableArgumentMode=toggle
     //% inlineInputMode=inline
     //% blockSetVariable=mySlider
@@ -36,8 +36,9 @@ class Slider {
     private _height: number;
     private _left: number;
     private _top: number;
-    private _x:number;
-    private _y:number;
+    private _track_color:number;
+    private _thumb_color:number;
+
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     get value(): number {
@@ -81,13 +82,11 @@ class Slider {
     get width(): number {
         return this._width;
     }
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="height"
     get height(): number {
         return this._height;
     }
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="left"
     get left(): number {
@@ -97,7 +96,7 @@ class Slider {
     //% blockCombine block="left"
     set left(value: number) {
         this._left = value;
-        this.make_slider();
+        this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="top"
@@ -108,38 +107,30 @@ class Slider {
     //% blockCombine block="top"
     set top(value: number) {
         this._top = value;
-        this.make_slider();
+        this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="x"
-    get x(): number {
-        return this._x;
+    //% blockCombine block="track color"
+    get track_color(): number {
+        return this._track_color;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="x"
-    set x(value: number) {
-        this._x = value;
-        this.make_slider();
+    //% blockCombine block="track color"
+    set track_color(value: number) {
+        this._track_color= value;
+        this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="y"
-    get y(): number {
-        return this._y;
+    //% blockCombine block="track color"
+    get thumb_color(): number {
+        return this._thumb_color;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="y"
-    set y(value: number) {
-        this._y = value;
-        this.make_slider();
+    //% blockCombine block="track color"
+    set thumb_color(value: number) {
+        this._thumb_color = value;
+        this.update_slider();
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track_color"
-    //% track_color.shadow="colorNumberPicker"
-    public track_color: number;
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb_color"
-    //% thumb_color.shadow="colorNumberPicker"
-    public thumb_color: number;
 
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
@@ -155,13 +146,15 @@ class Slider {
         this.track = sprites.create(this.track_img);
         this.thumb_img = image.create(3, this._height);
         this.thumb = sprites.create(this.thumb_img);
-        this.make_slider();
+        this.update_slider();
     }
     
-    private make_slider() {
+    private update_slider() {
         this.track_img.fill(this.track_color);
         this.track.top = this._top;
+        this.track.left = this._left;
         this.thumb_img.fill(this.thumb_color);
         this.thumb.top = this.track.top;
+        this.calc_value();
     }   
 }
