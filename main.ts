@@ -167,15 +167,16 @@ class Slider {
         this.track_color = 5;
         this.thumb_color = 2;
         this.make_slider();
-    }
-    private make_slider() {
         this.track_img = image.create(this._width, this._height);
-        this.track_img.fill(this.track_color);
         this.track = sprites.create(this.track_img);
-        this.track.top = this._top;
-        this.thumb_img = image.create(4, 8);
-        this.thumb_img.fill(this.thumb_color);
+        this.thumb_img = image.create(3, this._height);
         this.thumb = sprites.create(this.thumb_img);
+    }
+    
+    private make_slider() {
+        this.track_img.fill(this.track_color);
+        this.track.top = this._top;
+        this.thumb_img.fill(this.thumb_color);
         this.thumb.top = this.track.top;
     }   
 }
