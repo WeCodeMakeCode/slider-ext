@@ -42,6 +42,8 @@ class Slider {
     private _height: number;
     private _left: number;
     private _top: number;
+    private _x:number;
+    private _y:number;
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     get value(): number {
@@ -120,6 +122,30 @@ class Slider {
         this._top = value;
         this.make_slider();
     }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="x"
+    get x(): number {
+        return this._x;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="x"
+    set x(value: number) {
+        this._x = value;
+        this.make_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="y"
+    get y(): number {
+        return this._y;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="y"
+    set y(value: number) {
+        this._y = value;
+        this.make_slider();
+    }
+
+
 
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="track color"-
