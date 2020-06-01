@@ -38,6 +38,7 @@ class Slider {
     private _top: number;
     private _track_color:number;
     private _thumb_color:number;
+    private _selected:boolean;
 
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
@@ -131,7 +132,17 @@ class Slider {
         this._thumb_color = value;
         this.update_slider();
     }
-
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    get selected(): boolean {
+        return this._selected;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    set selected(value: boolean) {
+        this._selected = value;
+        this.update_slider();
+    }
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
         this._min = min;
@@ -148,6 +159,7 @@ class Slider {
         this.thumb_img = image.create(3, this._height);
         this.thumb_img.fill(this._thumb_color);
         this.thumb = sprites.create(this.thumb_img);
+        this._selected = false;
         this.update_slider();
     }
     
@@ -157,6 +169,12 @@ class Slider {
         this.track.left = this._left;
         this.thumb_img.fill(this._thumb_color);
         this.thumb.top = this.track.top;
+        if (this._selected){
+            helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, 2)
+        } else {
+            helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
+        }
+
         this.calc_value();
     }   
 }
