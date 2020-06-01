@@ -18,7 +18,7 @@ namespace slider {
     //% weight=100
     //% group="Create"
     export function create(value: number = 50,
-        min: number = 0, max: number = 100, width:number = 160, height:number = 10): Slider {
+        min: number = 0, max: number = 100, width:number = 100, height:number = 6): Slider {
         return new Slider(value, min, max, width, height);
     }
 }
@@ -47,7 +47,7 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     set value(value: number) {
-        this._value = Math.min(Math.max(value, this._min), this._max);
+        this._value = value;
         this.calc_value();
     }
     private calc_value(){
