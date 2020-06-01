@@ -140,11 +140,11 @@ class Slider {
     }
 
 
-    //% group="Properties" blockSetVariable="color"
+    //% group="Properties" block="%"color"
     //% color.shadow="colorNumberPicker"
     //% weight=8
     public track_color: number;
-    //% group="Properties" blockSetVariable="track_color"
+    //% group="Properties" block="%thumb_color"
     //% thumb_color.shadow="colorNumberPicker"
     //% weight=8
     public thumb_color: number;
