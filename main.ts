@@ -8,8 +8,10 @@ namespace slider {
     //% value.defl=50
     //% min.defl=0
     //% max.defl=100
-    //% width.min=30 width.max = 160 width.defl=100
-    //% height.min=2 height.max = 10 height.defl=6
+    //% width.defl=100
+    //% height.defl=6
+    //% width.min=30 width.max = 160 
+    //% height.min=2 height.max = 10 
     //% expandableArgumentMode=toggle
     //% inlineInputMode=inline
     //% blockSetVariable=mySlider
@@ -130,13 +132,13 @@ class Slider {
         this._y = value;
         this.make_slider();
     }
-
-
-    //% block="set $color"
-    //% color.shadow="colorNumberPicker"
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track_color"
+    //% track_color.shadow="colorNumberPicker"
     public track_color: number;
-    //% block="set $thumb_color"
-    //% color.shadow="colorNumberPicker"
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb_color"
+    //% thumb_color.shadow="colorNumberPicker"
     public thumb_color: number;
 
     constructor(value: number, min: number, max: number, width:number, height:number) {
