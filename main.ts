@@ -52,9 +52,13 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     set value(value: number) {
-        this._value = Math.min(Math.max(value,this._min),this._max)
+        this._value = Math.min(Math.max(value, this._min), this._max);
+        this.calc_value();
+    }
+    private calc_value(){
+        this._value = Math.min(Math.max(this._value, this._min), this._max);
         this.thumb.left = this._left + this._width * this._value / (this._max - this._min);
-        this.thumb.say(this._value.toString())
+        this.thumb.say(this._value.toString());
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="min"
@@ -65,7 +69,7 @@ class Slider {
     //% blockCombine block="min"
     set min(value: number) {
         this._min = value;
-        this.make_slider();
+        this.calc_value();
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="max"
@@ -76,30 +80,20 @@ class Slider {
     //% blockCombine block="max"
     set max(value: number) {
         this._max = value;
-        this.make_slider();
+        this.calc_value();
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="width"
     get width(): number {
         return this._width;
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="width"
-    set width(value: number) {
-        this._width = value;
-        this.make_slider();
-    }
+
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="height"
     get height(): number {
         return this._height;
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="height"
-    set height(value: number) {
-        this._height = value;
-        this.make_slider();
-    }
+
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="left"
     get left(): number {
@@ -147,11 +141,13 @@ class Slider {
 
 
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"-
+    //% blockCombine block="color"-
+    //% color.shadow="colorNumberPicker"
     //% weight=8
     public track_color: number;
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb color"
+    //% blockCombine block="thumb_color"
+    //% thumb_color.shadow="colorNumberPicker"
     //% weight=8
     public thumb_color: number;
 
