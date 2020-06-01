@@ -140,13 +140,11 @@ class Slider {
     }
 
 
-    //% group="Properties" block="%"color"
+    //% block="set $color"
     //% color.shadow="colorNumberPicker"
-    //% weight=8
     public track_color: number;
-    //% group="Properties" block="%thumb_color"
-    //% thumb_color.shadow="colorNumberPicker"
-    //% weight=8
+    //% block="set $thumb_color"
+    //% color.shadow="colorNumberPicker"
     public thumb_color: number;
 
     constructor(value: number, min: number, max: number) {
