@@ -54,15 +54,13 @@ class Slider {
         this.thumb.left = this._left + this._width * this._value / (this._max - this._min);
         this.thumb.say(this._value.toString())
     }
-
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="min"
     get min(): number {
         return this._min;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="max"
+    //% blockCombine block="min"
     set min(value: number) {
         this._min = value;
         this.make_slider();
@@ -148,10 +146,10 @@ class Slider {
         this.track_img = image.create(this._width, this._height);
         this.track_img.fill(this.track_color);
         this.track = sprites.create(this.track_img);
-        this.track.y = this._top;
+        this.track.top = this._top;
         this.thumb_img = image.create(4, 8);
         this.thumb_img.fill(this.thumb_color);
         this.thumb = sprites.create(this.thumb_img);
-        this.thumb.y = this.track.y;
+        this.thumb.top = this.track.top;
     }   
 }
