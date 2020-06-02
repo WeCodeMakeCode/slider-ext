@@ -186,7 +186,6 @@ class Slider {
         } else {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
-
         this.calc_value();
     }   
 }
