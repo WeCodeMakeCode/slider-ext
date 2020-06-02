@@ -188,7 +188,7 @@ class Slider {
         this._height = height;
         this._left = (160 - this._width)/2;
         this._top = 120 - this._height;
-        this._track_color = 6;
+        this._track_color = 8;
         this._thumb_color = 2;
         this._selected_color = 5;
         this.track_img = image.create(this._width, this._height);
@@ -208,7 +208,7 @@ class Slider {
         this.thumb_img.fill(this._thumb_color);
         this.thumb.top = this.track.top;
         if (this._selected){
-            helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, 2)
+            helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._selected_color)
         } else {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
