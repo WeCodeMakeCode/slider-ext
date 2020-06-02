@@ -188,7 +188,7 @@ class Slider {
         this._height = height;
         this._left = (160 - this._width)/2;
         this._top = 120 - this._height;
-        this._track_color = 7;
+        this._track_color = 6;
         this._thumb_color = 2;
         this._selected_color = 5;
         this.track_img = image.create(this._width, this._height);
