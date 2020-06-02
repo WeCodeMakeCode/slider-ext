@@ -1,5 +1,5 @@
 {
-    "name": "slider ext 3",
+    "name": "slider ext",
     "dependencies": {
         "device": "*"
     },

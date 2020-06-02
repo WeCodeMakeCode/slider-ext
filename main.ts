@@ -133,12 +133,12 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
+    //% blockCombine block="selected"
     get selected(): boolean {
         return this._selected;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
+    //% blockCombine block="selected"
     set selected(value: boolean) {
         this._selected = value;
         this.update_slider();
