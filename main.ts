@@ -39,6 +39,7 @@ class Slider {
     private _track_color:number;
     private _thumb_color:number;
     private _selected:boolean;
+    private _info:string;
 
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
@@ -141,6 +142,17 @@ class Slider {
     //% blockCombine block="selected"
     set selected(value: boolean) {
         this._selected = value;
+        this.update_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="information"
+    get info(): string {
+        return this._info;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="information"
+    set info(value: string) {
+        this._info = value;
         this.update_slider();
     }
     constructor(value: number, min: number, max: number, width:number, height:number) {
