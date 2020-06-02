@@ -51,7 +51,7 @@ class Slider {
     //% blockCombine block="value"
     set value(value: number) {
         this._value = value;
-        this._thumb_text = null;
+        this._thumb_text = "";
         this.calc_value();
     }
     private calc_value(){
@@ -182,7 +182,7 @@ class Slider {
         this._height = height;
         this._left = (160 - this._width)/2;
         this._top = 120 - this._height;
-        this._track_color = 7;
+        this._track_color = 6;
         this._thumb_color = 2;
         this._selected_color = 5;
         this.track_img = image.create(this._width, this._height);
@@ -207,8 +207,8 @@ class Slider {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
         this.calc_value();
-        if (!this._thumb_text.isEmpty()){
-            this.thumb.say(this._thumb_text);
-        }
+        //if (!this._thumb_text.isEmpty()){
+        //    this.thumb.say(this._thumb_text);
+       // }
     }   
 }
