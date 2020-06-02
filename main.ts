@@ -169,7 +169,7 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb text"
+    //% blockCombine block="thumb_text"
     set thumb_text(value: string) {
         //this._thumb_text = value;
         //this.update_slider();
