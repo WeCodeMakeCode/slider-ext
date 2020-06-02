@@ -36,6 +36,7 @@ class Slider {
     private _height: number;
     private _left: number;
     private _top: number;
+    private _scale: number;
     private _track_color:number;
     private _thumb_color:number;
     private _selected_color: number;    
@@ -50,14 +51,27 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     set value(value: number) {
-        this._value = value;
+        this._value = value * this._scale;
         this._thumb_text = "";
         this.calc_value();
     }
-    private calc_value(){
+    private calc_value(){ // scale
         this._value = Math.min(Math.max(this._value, this._min), this._max);
         this.thumb.left = this._left + this._width * this._value / (this._max - this._min);
         this.thumb.say(this._value.toString());
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="scale"
+    //% scale.defl=1
+    get scale(): number {
+        return this._scale;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="scale"
+    //% scale.defl=1
+    set scale(value: number) {
+        this._scale = value;
+        this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="min"
@@ -182,6 +196,7 @@ class Slider {
 
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
+        this._scale = 1;
         this._min = min;
         this._max = max;
         this._width = width;
