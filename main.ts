@@ -38,6 +38,7 @@ class Slider {
     private _top: number;
     private _track_color:number;
     private _thumb_color:number;
+    private _selected_color: number;    
     private _selected:boolean;
     private _data:string;
 
@@ -134,6 +135,17 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="selected border color"
+    get selected_color(): number {
+        return this._selected_color;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="selected border color"
+    set selected_color(value: number) {
+        this._selected_color = value;
+        this.update_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="selected"
     get selected(): boolean {
         return this._selected;
@@ -155,6 +167,12 @@ class Slider {
         this._data = value;
         this.update_slider();
     }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb text"
+    set thumb_text(value: string) {
+        this.thumb.say(value);
+        this._data = value;
+    }
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
         this._min = min;
@@ -163,8 +181,9 @@ class Slider {
         this._height = height;
         this._left = (160 - this._width)/2;
         this._top = 120 - this._height;
-        this._track_color = 5;
+        this._track_color = 7;
         this._thumb_color = 2;
+        this._selected_color = 5;
         this.track_img = image.create(this._width, this._height);
         this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
