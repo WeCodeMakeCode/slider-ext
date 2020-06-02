@@ -38,6 +38,7 @@ class Slider {
     private _top: number;
     private _track_color:number;
     private _thumb_color:number;
+    private _thumb_text: string;
     private _selected_color: number;    
     private _selected:boolean;
     private _data:string;
@@ -51,6 +52,7 @@ class Slider {
     //% blockCombine block="value"
     set value(value: number) {
         this._value = value;
+        this._thumb_text = "";
         this.calc_value();
     }
     private calc_value(){
@@ -170,7 +172,7 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="thumb text"
     set thumb_text(value: string) {
-        this.thumb.say(value);
+        this._thumb_text = value;
     }
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
@@ -205,5 +207,8 @@ class Slider {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
         this.calc_value();
+        if (this._thumb_text.isEmpty()){
+            this.thumb.say(this._thumb_text);
+        }
     }   
 }
