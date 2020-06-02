@@ -38,11 +38,10 @@ class Slider {
     private _top: number;
     private _track_color:number;
     private _thumb_color:number;
-    private _thumb_text: string;
     private _selected_color: number;    
     private _selected:boolean;
     private _data:string;
-
+    private _thumb_text: string;
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     get value(): number {
@@ -52,7 +51,7 @@ class Slider {
     //% blockCombine block="value"
     set value(value: number) {
         this._value = value;
-        this._thumb_text = "";
+        this._thumb_text = null;
         this.calc_value();
     }
     private calc_value(){
