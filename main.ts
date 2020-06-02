@@ -158,6 +158,12 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb text"
+    set thumb_text(value: string) {
+        //this._thumb_text = value;
+        //this.update_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="data"
     get data(): string {
         return this._data;
@@ -168,12 +174,7 @@ class Slider {
         this._data = value;
         this.update_slider();
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb_text"
-    set thumb_text(value: string) {
-        //this._thumb_text = value;
-        //this.update_slider();
-    }
+
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
         this._min = min;
