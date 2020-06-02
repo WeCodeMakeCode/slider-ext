@@ -51,7 +51,7 @@ class Slider {
     //% blockCombine block="value"
     set value(value: number) {
         this._value = value;
-        //this._thumb_text = "";
+        this._thumb_text = "";
         this.calc_value();
     }
     private calc_value(){
@@ -176,8 +176,8 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="thumb text"
     set thumb_text(value: string) {
-        //this._thumb_text = value;
-        //this.update_slider();
+        this._thumb_text = value;
+        this.update_slider();
     }
 
     constructor(value: number, min: number, max: number, width:number, height:number) {
@@ -213,8 +213,8 @@ class Slider {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
         this.calc_value();
-        //if (!this._thumb_text.isEmpty()){
-        //    this.thumb.say(this._thumb_text);
-        //}
+        if (!this._thumb_text.isEmpty()){
+            this.thumb.say(this._thumb_text);
+        }
     }   
 }
