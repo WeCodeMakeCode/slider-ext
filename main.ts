@@ -171,7 +171,6 @@ class Slider {
     //% blockCombine block="thumb text"
     set thumb_text(value: string) {
         this.thumb.say(value);
-        this._data = value;
     }
     constructor(value: number, min: number, max: number, width:number, height:number) {
         this._value = value;
