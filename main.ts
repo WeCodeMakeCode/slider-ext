@@ -63,7 +63,7 @@ class Slider {
     }
     private calc_value(){
         this._value = Math.min(Math.max(this._value, this._min), this._max);
-        this.thumb.left = this._left - (Math.round(this._thumb_width/2 ) + this._width * (this._value  - this._min)/ (this._max - this._min);
+        this.thumb.left = this._left - Math.round(this._thumb_width/2 ) + this._width * (this._value  - this._min)/ (this._max - this._min);
         this.thumb.say(this._value.toString());
     }
     //% group="Properties" blockSetVariable="mySlider"
