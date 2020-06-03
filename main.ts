@@ -1,7 +1,12 @@
 /**
 * A slider with track and thumb
-    //% width.min=30 width.max = 160
-    //% height.min=2 height.max = 10
+    NOTES:
+    1. these not working on properties:
+        //% width.min=30 width.max = 160
+        //% height.min=2 height.max = 10
+    2. increment property not fully implemeted
+    3. may want to add numberic data
+    4. make thumb width a property
 */
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
@@ -34,6 +39,7 @@ class Slider {
     private _min: number;
     private _max: number;
     private _width: number;
+    private _thumb_width:number;
     private _height: number;
     private _left: number;
     private _top: number;
@@ -55,9 +61,9 @@ class Slider {
         this._thumb_text = "";
         this.calc_value();
     }
-    private calc_value(){ // scale
+    private calc_value(){
         this._value = Math.min(Math.max(this._value, this._min), this._max);
-        this.thumb.left = this._left + this._width * this._value / (this._max - this._min);
+        this.thumb.left = this._left - (Math.round(this._thumb_width/2 ) + this._width * (this._value  - this._min)/ (this._max - this._min);
         this.thumb.say(this._value.toString());
     }
     //% group="Properties" blockSetVariable="mySlider"
@@ -209,7 +215,8 @@ class Slider {
         this.track_img = image.create(this._width, this._height);
         this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
-        this.thumb_img = image.create(3, this._height);
+        this._thumb_width = 3;
+        this.thumb_img = image.create(this._thumb_width, this._height);
         this.thumb_img.fill(this._thumb_color);
         this.thumb = sprites.create(this.thumb_img);
         this._selected = false;
