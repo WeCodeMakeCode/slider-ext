@@ -51,14 +51,14 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     set value(value: number) {
-        this._value = value * this._scale;
+        this._value = value
         this._thumb_text = "";
         this.calc_value();
     }
     private calc_value(){ // scale
         this._value = Math.min(Math.max(this._value, this._min), this._max);
         this.thumb.left = this._left + this._width * this._value / (this._max - this._min);
-        this.thumb.say(this._value.toString());
+        this.thumb.say((this._scale * this._value).toString());
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="scale"
