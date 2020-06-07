@@ -13,7 +13,7 @@ enum Orientation {
     2. increment property not fully implemeted
     3. may want to add numberic data
     4. make thumb width a property
-    5. add verticalr
+    5. add vertical
 */
 
 //% weight=100 color=#008080
@@ -216,7 +216,7 @@ class Slider {
         this.track_img = image.create(this._width, this._height);
         this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
-        if (this._orientation = Orientation.Horizontal){
+        if (this._orientation == Orientation.Horizontal){
             console.log(" constructor horizontal");
             this._left = (160 - this._width) / 2;
             this._top = 120 - this._height - 2;
