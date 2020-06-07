@@ -72,7 +72,7 @@ class Slider {
     }
     private calc_value(){
         this._value = Math.min(Math.max(this._value, this._min), this._max);
-        if (this._orientation = Orientation.Horizontal)
+        if (this._orientation == Orientation.Horizontal)
         {
             console.log("calc value horizontal")
             this.thumb.left = this._left - Math.round(this._thumb_width / 2) + this._width * (this._value - this._min) / (this._max - this._min);
@@ -241,7 +241,7 @@ class Slider {
         this.track.top = this._top;
         this.track.left = this._left;
         this.thumb_img.fill(this._thumb_color);
-        if(this._orientation = Orientation.Horizontal){
+        if(this._orientation == Orientation.Horizontal){
             console.log("update_slider horizontal")
             this.thumb.top = this.track.top;
         }else{
