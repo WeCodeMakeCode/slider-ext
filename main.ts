@@ -216,11 +216,11 @@ class Slider {
         this.track = sprites.create(this.track_img);
         if (this._orientation = Orientation.Horizontal){
             this._left = (160 - this._width) / 2;
-            this._top = 120 - this._height;
+            this._top = 120 - this._height - 2;
             this._thumb_width = 3;
             this._thumb_height = this._height;
         } else{
-            this._left = 0
+            this._left = 3
             this._top = (120 - this._height) / 2;
             this._thumb_width = this._width;
             this._thumb_height = 3;
