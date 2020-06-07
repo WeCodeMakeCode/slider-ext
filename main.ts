@@ -74,7 +74,7 @@ class Slider {
         this._value = Math.min(Math.max(this._value, this._min), this._max);
         if (this._orientation == Orientation.Horizontal)
         {
-            this.thumb.left = this._left - Math.round(this._thumb_width / 2) + Math.round(this._width *(this._value - this._min) / (this._max - this._min));
+            this.thumb.left = this._left - Math.floor(this._thumb_width / 2) + Math.round(this._width *(this._value - this._min) / (this._max - this._min));
         } else {
             this.thumb.top = this._top + 120 + Math.round(this._thumb_height / 2) - Math.round(this._height *(this._value - this._min) / (this._max - this._min));
         }
