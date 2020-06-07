@@ -235,7 +235,12 @@ class Slider {
         this.track.top = this._top;
         this.track.left = this._left;
         this.thumb_img.fill(this._thumb_color);
-        this.thumb.top = this.track.top;
+        if(this._orientation = Orientation.Horizontal){
+            this.thumb.top = this.track.top;
+        }else{
+            this.thumb.left = this.track.left;
+        }
+        
         if (this._selected){
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._selected_color)
         } else {
