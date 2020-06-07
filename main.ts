@@ -134,17 +134,7 @@ class Slider {
         this._top = value;
         this.update_slider();
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
-    get track_color(): number {
-        return this._track_color;
-    }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
-    set track_color(value: number) {
-        this._track_color= value;
-        this.update_slider();
-    }
+
 
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="selected border color"
@@ -191,13 +181,27 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb color"
     get thumb_color(): number {
         return this._thumb_color;
     }
     //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb color"
     //% color.shadow="colorNumberPicker"
     set thumb_color(color: number) {
         this._thumb_color = color;
+        this.update_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    get track_color(): number {
+        return this._track_color;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    //% color.shadow="colorNumberPicker"
+    set track_color(color: number) {
+        this._track_color = color;
         this.update_slider();
     }
     constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
