@@ -19,7 +19,7 @@ enum Orientation {
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
-    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height || orientation %orientation"
+    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height orientation %orientation"
     //% value.defl=50
     //% min.defl=0
     //% max.defl=100
@@ -31,7 +31,7 @@ namespace slider {
     //% weight=100
     //% group="Create"
     export function create(value: number = 50,
-        min: number = 0, max: number = 100, orientaton:Orientation = Orientation.Horizontal, width:number = 100, height:number = 6): Slider {
+        min: number = 0, max: number = 100, width: number = 100, height: number = 6, orientaton: Orientation = Orientation.Horizontal): Slider {
         return new Slider(value, min, max, orientaton, width, height);
     }
 }
