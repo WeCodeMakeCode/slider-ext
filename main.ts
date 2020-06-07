@@ -145,19 +145,7 @@ class Slider {
         this._track_color= value;
         this.update_slider();
     }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb_color" 
-    get thumb_color(): number {
-        return this._thumb_color;
-    }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
-    //% value.shadow="colorNumberPicker"
 
-    set thumb_color(value: number) {
-        this._thumb_color = value;
-        this.update_slider();
-    }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="selected border color"
     get selected_color(): number {
@@ -202,7 +190,16 @@ class Slider {
         this._thumb_text = value;
         this.update_slider();
     }
-
+    //% group="Properties" blockSetVariable="mySlider"
+    get thumb_color(): number {
+        return this._thumb_color;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% color.shadow="colorNumberPicker"
+    set thumb_color(color: number) {
+        this._thumb_color = color;
+        this.update_slider();
+    }
     constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
         this._value = value;
         this._min = min;
