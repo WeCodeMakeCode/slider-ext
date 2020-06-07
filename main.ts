@@ -223,7 +223,7 @@ class Slider {
             this._thumb_width = 3;
             this._thumb_height = this._height;
         } else{
-            console.log(" constructor horizontal");         
+            console.log(" constructor vertical");         
             this._left = 3
             this._top = (120 - this._height) / 2;
             this._thumb_width = this._width;
