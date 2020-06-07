@@ -32,7 +32,7 @@ namespace slider {
     //% group="Create"
     export function create(value: number = 50,
         min: number = 0, max: number = 100, width: number = 100, height: number = 6, orientaton: Orientation = Orientation.Horizontal): Slider {
-        return new Slider(value, min, max, orientaton, width, height);
+        return new Slider(value, min, max,  width, height, orientaton);
     }
 }
 
