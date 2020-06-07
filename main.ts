@@ -68,7 +68,7 @@ class Slider {
     set value(value: number) {
         this._value = value
         this._thumb_text = "";
-        //this.calc_value();
+        this.calc_value();
     }
     private calc_value(){
         this._value = Math.min(Math.max(this._value, this._min), this._max);
@@ -201,7 +201,7 @@ class Slider {
         this.update_slider();
     }
 
-    constructor(value: number, min: number, max: number, orientation:Orientation, width:number, height:number) {
+    constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
         this._value = value;
         this._min = min;
         this._max = max;
@@ -246,7 +246,7 @@ class Slider {
         } else {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
         }
-        //this.calc_value();
+        this.calc_value();
         if (!this._thumb_text.isEmpty()){
             this.thumb.say(this._thumb_text);
         }
