@@ -19,7 +19,7 @@ enum Orientation {
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
-    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || orientation %orientation width %width height %height"
+    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height || orientation %orientation"
     //% value.defl=50
     //% min.defl=0
     //% max.defl=100
