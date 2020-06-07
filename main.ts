@@ -76,7 +76,7 @@ class Slider {
         {
             this.thumb.left = this._left - Math.round(this._thumb_width / 2) + this._width * Math.round((this._value - this._min) / (this._max - this._min));
         } else {
-            this.thumb.top = 120 - this._top + Math.round(this._thumb_height / 2) - this._height * Math.round((this._value - this._min) / (this._max - this._min));
+            this.thumb.top =  this._top + 120 + Math.round(this._thumb_height / 2) - this._height * Math.round((this._value - this._min) / (this._max - this._min));
         }
         this.thumb.say(this._value.toString());
     }
