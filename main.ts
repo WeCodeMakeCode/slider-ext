@@ -146,12 +146,14 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
+    //% blockCombine block="thumb_color" 
     get thumb_color(): number {
         return this._thumb_color;
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="track color"
+    //% value.shadow="colorNumberPicker"
+
     set thumb_color(value: number) {
         this._thumb_color = value;
         this.update_slider();
