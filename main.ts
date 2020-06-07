@@ -238,9 +238,9 @@ class Slider {
         this.track.left = this._left;
         this.thumb_img.fill(this._thumb_color);
         if(this._orientation == Orientation.Horizontal){
-            this.thumb.top = this.track.top;
+            this.thumb.top = this._top;
         } else{
-            this.thumb.left = this.track.left;
+            this.thumb.left = this._left;
         }
         
         if (this._selected){
