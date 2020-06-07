@@ -31,8 +31,8 @@ namespace slider {
     //% weight=100
     //% group="Create"
     export function create(value: number = 50,
-        min: number = 0, max: number = 100, orientaton:Orientation, width:number = 100, height:number = 6): Slider {
-        return new Slider(value, min, max, orientaton=Orientation.Horizontal, width, height);
+        min: number = 0, max: number = 100, orientaton:Orientation = Orientation.Horizontal, width:number = 100, height:number = 6): Slider {
+        return new Slider(value, min, max, orientaton, width, height);
     }
 }
 
