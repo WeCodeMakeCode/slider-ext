@@ -74,9 +74,9 @@ class Slider {
         this._value = Math.min(Math.max(this._value, this._min), this._max);
         if (this._orientation == Orientation.Horizontal)
         {
-            this.thumb.left = this.track.left - Math.round(this._thumb_width / 2) + this._width * Math.round((this._value - this._min) / (this._max - this._min));
+            this.thumb.left = this._left - Math.round(this._thumb_width / 2) + this._width * Math.round((this._value - this._min) / (this._max - this._min));
         } else {
-            this.thumb.bottom = this.track.bottom + Math.round(this._thumb_height / 2) - this._height * Math.round((this._value - this._min) / (this._max - this._min));
+            this.thumb.top = 120 - this._top + Math.round(this._thumb_height / 2) - this._height * Math.round((this._value - this._min) / (this._max - this._min));
         }
         this.thumb.say(this._value.toString());
     }
@@ -215,13 +215,11 @@ class Slider {
         this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
         if (this._orientation == Orientation.Horizontal){
-            console.log(" constructor horizontal");
-            this._left = (160 - this._width) / 2;
+           this._left = (160 - this._width) / 2;
             this._top = 120 - this._height - 2;
             this._thumb_width = 3;
             this._thumb_height = this._height;
-        } else{
-            console.log(" constructor vertical");         
+        } else {       
             this._left = 3
             this._top = (120 - this._height) / 2;
             this._thumb_width = this._width;
@@ -240,10 +238,8 @@ class Slider {
         this.track.left = this._left;
         this.thumb_img.fill(this._thumb_color);
         if(this._orientation == Orientation.Horizontal){
-            console.log("update_slider horizontal")
             this.thumb.top = this.track.top;
-        }else{
-            console.log("update_slider vertical")
+        } else{
             this.thumb.left = this.track.left;
         }
         
