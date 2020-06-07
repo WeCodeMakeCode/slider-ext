@@ -13,13 +13,13 @@ enum Orientation {
     2. increment property not fully implemeted
     3. may want to add numberic data
     4. make thumb width a property
-    5. add vertical
+    5. add verticalr
 */
 
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
-    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height"
+    //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || orientation %orientation width %width height %height"
     //% value.defl=50
     //% min.defl=0
     //% max.defl=100
