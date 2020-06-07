@@ -1,3 +1,9 @@
+enum Orientation {
+    //% block="horizontal"
+    Horizontal = 0,
+    //% block="vertical"
+    Vertical = 1,
+}
 /**
 * A slider with track and thumb
     NOTES:
@@ -7,7 +13,9 @@
     2. increment property not fully implemeted
     3. may want to add numberic data
     4. make thumb width a property
+    5. add vertical
 */
+
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
@@ -23,8 +31,8 @@ namespace slider {
     //% weight=100
     //% group="Create"
     export function create(value: number = 50,
-        min: number = 0, max: number = 100, width:number = 100, height:number = 6): Slider {
-        return new Slider(value, min, max, width, height);
+        min: number = 0, max: number = 100, orientaton:Orientation, width:number = 100, height:number = 6): Slider {
+        return new Slider(value, min, max, orientaton=Orientation.Horizontal, width, height);
     }
 }
 
@@ -35,11 +43,12 @@ class Slider {
     private thumb: Sprite;
     private thumb_img: Image
     private _value: number;
-    private _increment:number;
     private _min: number;
     private _max: number;
+    private _orientation:Orientation;
     private _width: number;
     private _thumb_width:number;
+    private _thumb_height:number;
     private _height: number;
     private _left: number;
     private _top: number;
@@ -63,21 +72,14 @@ class Slider {
     }
     private calc_value(){
         this._value = Math.min(Math.max(this._value, this._min), this._max);
-        this.thumb.left = this._left - Math.round(this._thumb_width/2 ) + this._width * (this._value  - this._min)/ (this._max - this._min);
+        if (this._orientation = Orientation.Horizontal)
+        {
+            this.thumb.left = this._left - Math.round(this._thumb_width / 2) + this._width * (this._value - this._min) / (this._max - this._min);
+        } else {
+            this.thumb.top = this._top - Math.round(this._thumb_height / 2) + this._height * (this._value - this._min) / (this._max - this._min);
+        }
+
         this.thumb.say(this._value.toString());
-    }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="increment"
-    //% scale.defl=1
-    get increment(): number {
-        return this._increment;
-    }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="increment"
-    //% scale.defl=1
-    set increment(value: number) {
-        this._increment = value;
-        this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="min"
@@ -200,11 +202,11 @@ class Slider {
         this.update_slider();
     }
 
-    constructor(value: number, min: number, max: number, width:number, height:number) {
+    constructor(value: number, min: number, max: number, orientation:Orientation, width:number, height:number) {
         this._value = value;
-        this._increment = 1;
         this._min = min;
         this._max = max;
+        this._orientation = orientation
         this._width = width;
         this._height = height;
         this._left = (160 - this._width)/2;
@@ -215,8 +217,14 @@ class Slider {
         this.track_img = image.create(this._width, this._height);
         this.track_img.fill(this._track_color);
         this.track = sprites.create(this.track_img);
-        this._thumb_width = 3;
-        this.thumb_img = image.create(this._thumb_width, this._height);
+        if (this._orientation = Orientation.Horizontal){
+            this._thumb_width = 3;
+            this._thumb_height = this._height;
+        } else{
+            this._thumb_width = this._width;
+            this._thumb_height = 3;
+        }
+        this.thumb_img = image.create(this._thumb_width, this._thumb_height);
         this.thumb_img.fill(this._thumb_color);
         this.thumb = sprites.create(this.thumb_img);
         this._selected = false;
