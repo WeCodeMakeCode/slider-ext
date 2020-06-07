@@ -78,7 +78,6 @@ class Slider {
         } else {
             this.thumb.top = this._top - Math.round(this._thumb_height / 2) + this._height * (this._value - this._min) / (this._max - this._min);
         }
-
         this.thumb.say(this._value.toString());
     }
     //% group="Properties" blockSetVariable="mySlider"
