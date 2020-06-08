@@ -62,7 +62,7 @@ class Slider {
     //% group="Properties" 
     //% block="set track color to %color"
     //% color.shadow="colorNumberPicker"
-    set_track_color(color: number) {
+    public set_track_color(color: number) {
         this._track_color = color;
         this.update_slider();
     }
