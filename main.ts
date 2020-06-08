@@ -197,7 +197,6 @@ class Slider {
         return this._track_color;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
     //% color.shadow="colorNumberPicker"
     set_track_color(color: number) {
         this._track_color = color;
