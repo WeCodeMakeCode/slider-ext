@@ -135,7 +135,6 @@ class Slider {
         this.update_slider();
     }
 
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="selected border color"
     get selected_color(): number {
@@ -200,7 +199,7 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="track color"
     //% color.shadow="colorNumberPicker"
-    set track_color(color: number) {
+    set_track_color(color: number) {
         this._track_color = color;
         this.update_slider();
     }
