@@ -59,8 +59,6 @@ class Slider {
     private _data:string;
     private _thumb_text: string;
 
-
-    
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     get value(): number {
@@ -137,7 +135,6 @@ class Slider {
         this._top = value;
         this.update_slider();
     }
-
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="selected border color"
     get selected_color(): number {
@@ -200,12 +197,15 @@ class Slider {
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="thumb color"
-    //% color.shadow="colorNumberPicker"
     set thumb_color(color: number) {
         this._thumb_color = color;
         this.update_slider();
     }
-
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb sprite"
+    get thumb_sprite(): Sprite {
+        return this.thumb;
+    }
     constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
         this._value = value;
         this._min = min;
