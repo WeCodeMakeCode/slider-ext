@@ -59,13 +59,7 @@ class Slider {
     private _data:string;
     private _thumb_text: string;
 
-    //% group="Properties" 
-    //% block="set track color to %color"
-    //% color.shadow="colorNumberPicker"
-    public set_track_color(color: number) {
-        this._track_color = color;
-        this.update_slider();
-    }
+
     
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
@@ -189,6 +183,17 @@ class Slider {
         this.update_slider();
     }
     //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    get track_color(): number {
+        return this._track_color;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="track color"
+    set track_color(color: number) {
+        this._track_color = color;
+        this.update_slider();
+    }
+    //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="thumb color"
     get thumb_color(): number {
         return this._thumb_color;
@@ -199,11 +204,6 @@ class Slider {
     set thumb_color(color: number) {
         this._thumb_color = color;
         this.update_slider();
-    }
-    //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="track color"
-    get track_color(): number {
-        return this._track_color;
     }
 
     constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
