@@ -58,6 +58,15 @@ class Slider {
     private _selected:boolean;
     private _data:string;
     private _thumb_text: string;
+
+    //% group="Properties" 
+    //% block="set track color to %color"
+    //% color.shadow="colorNumberPicker"
+    set_track_color(color: number) {
+        this._track_color = color;
+        this.update_slider();
+    }
+    
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
     get value(): number {
@@ -196,13 +205,7 @@ class Slider {
     get track_color(): number {
         return this._track_color;
     }
-    //% group="Properties" 
-    //% block="set track color to %color"
-    //% color.shadow="colorNumberPicker"
-    set_track_color(color: number) {
-        this._track_color = color;
-        this.update_slider();
-    }
+
     constructor(value: number, min: number, max: number, width: number, height: number, orientation: Orientation) {
         this._value = value;
         this._min = min;
