@@ -10,10 +10,8 @@ enum Orientation {
     1. these not working on properties:
         //% width.min=30 width.max = 160
         //% height.min=2 height.max = 10
-    2. increment property not fully implemeted
+    2. increment property not implemeted
     3. may want to add numberic data
-    4. make thumb width a property
-    5. add vertical
 */
 
 //% weight=100 color=#008080
