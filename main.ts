@@ -66,7 +66,7 @@ class Slider {
     //% blockCombine block="value"
     set value(value: number) {
         this._value = value
-        this._thumb_text = "";
+        this.thumb.say("");
         this.calc_value();
     }
     private calc_value(){
