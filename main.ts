@@ -1,11 +1,7 @@
-enum Orientation {
-    //% block="horizontal"
-    Horizontal = 0,
-    //% block="vertical"
-    Vertical = 1,
-}
 /**
-* A slider with track and thumb
+    A slider with track and thumb
+    Can be either horizontal or vertical
+    User can specify size range and color
     NOTES:
     1. these not working on properties:
         //% width.min=30 width.max = 160
@@ -13,10 +9,24 @@ enum Orientation {
     2. increment property not implemeted
     3. may want to add numberic data
 */
-
+enum Orientation {
+    //% block="horizontal"
+    Horizontal = 0,
+    //% block="vertical"
+    Vertical = 1,
+}
 //% weight=100 color=#008080
 //% groups='["Create", "Actions", "Properties"]'
 namespace slider {
+    /**
+     * Creates a new slider
+     * @param value - the initial value of the slider
+     * @param min - the minimum value of the slider range
+     * @param max - the maximum value of the slider range
+     * @param width optional - the slider width in pixels,
+     * @param height optional - the slider height in pixels
+     * @param orientation optional - the slider orientation
+     */
     //% blockId=sliderCreate block="slider with value %value minimum %minimum maximum %maximum || width %width height %height orientation %orientation"
     //% value.defl=50
     //% min.defl=0
@@ -33,7 +43,9 @@ namespace slider {
         return new Slider(value, min, max,  width, height, orientaton);
     }
 }
-
+/**
+ * A slider
+ **/
 //% blockNamespace=slider color="#008080" blockGap=8
 class Slider {
     private track: Sprite;
