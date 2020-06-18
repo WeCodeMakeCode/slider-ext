@@ -199,7 +199,7 @@ class Slider {
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="levels text"
     get levels_text(): string {
-        return this._thumb_text;
+        return this._levels_text;
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="levels text"
