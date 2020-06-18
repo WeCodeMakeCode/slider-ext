@@ -282,8 +282,7 @@ class Slider {
         } else{
             this.thumb.left = this._left;
         }
-        
-        if (this._selected){
+                if (this._selected){
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._selected_color)
         } else {
             helpers.imageDrawRect(this.track_img, 0, 0, this._width, this._height, this._track_color)
