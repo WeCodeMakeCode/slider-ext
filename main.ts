@@ -196,13 +196,13 @@ class Slider {
         this._thumb_text = value;
         this.update_slider();
     }
-        //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb text"
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="levels text"
     get levels_text(): string {
         return this._thumb_text;
     }
     //% group="Properties" blockSetVariable="mySlider"
-    //% blockCombine block="thumb text"
+    //% blockCombine block="levels text"
     set levels_text(value: string) {
         this._thumb_text = value;
         if(this.thumb_text != ""){
