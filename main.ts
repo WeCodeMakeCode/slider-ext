@@ -68,6 +68,8 @@ class Slider {
     private _selected:boolean;
     private _data:string;
     private _thumb_text: string;
+    private _levels_text: string;
+    private levels_text_array: string[];
 
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="value"
@@ -89,7 +91,12 @@ class Slider {
         } else {
             this.thumb.top = 120 - this._top - Math.floor(this._thumb_height / 2) - Math.round(this._height *(this._value - this._min) / (this._max - this._min));
         }
-        this.thumb.say(this._value.toString());
+        if (this.levels_text_array != null){
+            let level_index:number = Math.abs(this._value % this.levels_text_array.length);
+            this.thumb.say(this.levels_text_array[level_index]);
+        } else {
+            this.thumb.say(this._value.toString());
+        }
     }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="min"
@@ -189,6 +196,22 @@ class Slider {
         this._thumb_text = value;
         this.update_slider();
     }
+        //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb text"
+    get levels_text(): string {
+        return this._thumb_text;
+    }
+    //% group="Properties" blockSetVariable="mySlider"
+    //% blockCombine block="thumb text"
+    set levels_text(value: string) {
+        this._thumb_text = value;
+        if(this.thumb_text != ""){
+            this.levels_text_array = this._thumb_text.split("|");
+        } else {
+            this.levels_text_array = null;
+        }
+        this.update_slider();
+    }
     //% group="Properties" blockSetVariable="mySlider"
     //% blockCombine block="track color"
     get track_color(): number {
@@ -244,6 +267,8 @@ class Slider {
         this.thumb_img.fill(this._thumb_color);
         this.thumb = sprites.create(this.thumb_img);
         this._selected = false;
+        this._levels_text = "";
+        this.levels_text_array = null;
         this.update_slider();
     }
     
